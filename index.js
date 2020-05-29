@@ -8,7 +8,7 @@ const   express = require('express'),
         authRoutes  = require('./routes/auth'),
         messagesRoutes  = require('./routes/messages'),
 	  	{ loginRequired, ensureCorrectUser } = require('./middleware/auth'),
-	  	PORT    = 3000;
+	  	PORT    = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
