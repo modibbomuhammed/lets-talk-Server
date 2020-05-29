@@ -16,7 +16,6 @@ const messageSchema = new mongoose.Schema({
 messageSchema.pre('remove', async function(next) {
     try{
         // find the user
-		eval(require('locus'))
         const user = await User.findById(this.user);
         // remove the id of the message from the messages list
         user.messages.remove(this.id);

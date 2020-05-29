@@ -17,6 +17,7 @@ app.use(morgan('tiny'));
 app.use('/api/auth', authRoutes);
 app.use('/api/users/:id/messages', loginRequired, ensureCorrectUser, messagesRoutes);
 
+
 app.get('/api/messages', loginRequired, async (req,res,next) => {
     try{
         const messages = await db.Message.find().sort({ createdAt: 'desc' }).populate('user', {
